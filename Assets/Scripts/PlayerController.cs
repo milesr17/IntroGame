@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    private int count;
+
     public Vector2 moveValue;
     public float speed;
     int count=0;
@@ -23,9 +23,10 @@ public class PlayerController : MonoBehaviour
         GetComponent<Rigidbody>().AddForce(movement * speed * Time.fixedDeltaTime);
     }
     
-    void OnTriggerEnter ( Collider other ) {
-        if( (other . gameObject . tag == " PickUp " ) && (count++)) {
-            other . gameObject . SetActive ( false );
+    void OnTriggerEnter(Collider other) {
+        if( (other.gameObject.tag == "PickUp" ) ) {
+            count++;
+            other.gameObject.SetActive(false);
 }
     }
     // void Start()
